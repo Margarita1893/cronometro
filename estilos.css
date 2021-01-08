@@ -35,7 +35,32 @@ h5 {
 .btn {
   border-radius: 150px;
 }
+
 #almacenarTiempos {
   color: whitesmoke;
   padding-right: 30px;
+}
+
+@media (max-width: 800px) {
+  body {
+    background-color: #f3f3f3;
+    color: #4f004b;
+    text-align: center;
+    align-content: center;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    color: #4f004b;
+  }
+
+  h5 {
+    font-size: medium;
+    color: #4f004b;
+  }
+
+  #temporizador {
+    color: #4f004b;
+    font-size: 35px;
+  }
 }
