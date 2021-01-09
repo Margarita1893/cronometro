@@ -16,6 +16,10 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/96f6d63e8a.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" type="text/css" href="estilos.css" />
   </head>
 
@@ -25,7 +29,10 @@
         <div class="col">
           <div>
             <h1>Cronómetro</h1>
-            <p id="temporizador">00:00:00</p>
+            <p id="temporizador">
+              <span id="minutes">00</span>: <span id="seconds">00</span>:
+              <span id="hours">00</span>:
+            </p>
           </div>
           <div
             class="btn-group mb-2 d-flex justify-content-center"
@@ -40,6 +47,11 @@
             <button type="button" class="btn btn-primary mr-2" id="grabar">
               GRABAR
             </button>
+          </div>
+          <div class="icon">
+            <i class="fas fa-stop-circle" id="resetear"></i>
+            <i class="fas fa-play-circle" id="iniciarS"></i>
+            <i class="fas fa-record-vinyl" id="grabar"></i>
           </div>
           <div>
             <h5>Tiempos grabados</h5>

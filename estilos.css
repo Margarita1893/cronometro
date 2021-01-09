@@ -41,12 +41,30 @@ h5 {
   padding-right: 30px;
 }
 
+.icon {
+  font-size: 50px;
+  justify-content: center;
+  display: none;
+}
+
 @media (max-width: 800px) {
   body {
-    background-color: #f3f3f3;
+    background-color: #f3f3f3f3;
+  }
+
+  #temporizador {
     color: #4f004b;
-    text-align: center;
-    align-content: center;
+    font-size: 35px;
+  }
+
+  .icon {
+    display: block;
+    font-size: 40px;
+    padding: 0 20px 0 20px;
+  }
+
+  .btn {
+    display: none;
   }
 
   h1 {
@@ -57,10 +75,5 @@ h5 {
   h5 {
     font-size: medium;
     color: #4f004b;
-  }
-
-  #temporizador {
-    color: #4f004b;
-    font-size: 35px;
   }
 }

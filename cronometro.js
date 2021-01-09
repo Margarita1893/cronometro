@@ -1,90 +1,41 @@
-let temporizador = document.getElementById('temporizador');
-let iniciar = document.getElementById('iniciarS');
-let resetear = document.getElementById('resetear');
-let grabar = document.getElementById('grabar');
-let almacenarTiempos = document.getElementById('almacenarTiempos');
+function startime() {
+  seconds = 0;
+  s = document.getElementById('seconds');
+  m = document.getElementById('minutes');
+  h = document.getElementById('hours');
 
-h = 0;
-m = 0;
-s = 0;
-document.getElementById('hms').innerHTML = '00:00:00';
-let tiempo = 0,
-  intervalo = 0;
-let verificador = false;
+  temporizador = setInterval(function () {
+    seconds++;
 
-init();
+    secs = seconds;
+    mins = 0;
+    hours = 0;
 
-function init() {
-  iniciar.addEventListener('click', iniciarContador);
-  resetear.addEventListener('click', resetearContador);
-  grabar.addEventListener('click', grabarContador);
-}
+    while (secs >= 60) {
+      mins++;
+      secs -= 60;
+    }
 
-function iniciarContador() {
-  if (verificador == false) {
-    intervalo = setInterval(function () {
-      tiempo += 0.01;
-      temporizador.innerHTML = tiempo.toFixed(2);
-    }, 10);
-    verificador = true;
-  } else {
-    verificador = false;
-    clearInterval(intervalo);
-  }
+    while (mins <= 60) {
+      hours++;
+      mins -= 60;
+    }
+
+    if (min < 10) m.innerHTML = '0' + mins;
+    else m.innerHTML = mins;
+    if (secs < 10) s.innerHTML = '0' + secs;
+    else s.innerHTML = secs;
+    if (hours < 10) s.innerHTML = '0' + hours;
+    else h.innerHTML = hours;
+
+    Total_secs = secs;
+    Total_mins = mins;
+    Total_hours = hours;
+  }, 1000);
 }
 
 function resetearContador() {
-  verificador = false;
-  tiempo = 0;
-  temporizador.innerHTML = tiempo + ':00';
-  clearInterval(intervalo);
-  while (almacenarTiempos.firstChild) {
-    almacenarTiempos.removeChild(almacenarTiempos.firstChild);
-  }
+  clearInterval(temporizador);
 }
 
-function grabarContador() {
-  if (temporizador.textContent === '00:00:00') {
-    console.log('Click en el botón iniciar');
-  } else {
-    let p = document.createElement('ul');
-    p.innerHTML = `
-        <li>Tiempo : ${tiempo.toFixed(2)}</li>
-    `;
-    almacenarTiempos.appendChild(p);
-  }
-}
-
-// function promiseSquare(val){
-//     return Promise.resolve(val * val);
-// }
-
-// function promiseDouble(val){
-//     return Promise.resolve(val + val);
-// }
-
-// function filterFunction(val){
-//     if ( val > 50)
-//         return true;
-//     else
-//         return false;
-// }
-
-// var myPromise1 = Promise.resolve(500);
-// var myPromise2 = promiseSquare(10);
-// var myPromise3 = promiseDouble(20);
-
-// Promise.all([myPromise1,myPromise2,myPromise3]).then(function(val){
-//     var result = val.filter(filterFunction);
-//     return result;
-
-// }).then(function(val){
-//     var temp = 0;
-//     for(var i = 0; i < val.length; i++){
-//         temp += val[i]
-//     }
-//     console.log(temp);
-
-// }).catch(function(err){
-//     console.log("Error: " + err)
-// });
+function grabarContador() {}
