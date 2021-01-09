@@ -1,41 +1,65 @@
-function startime() {
-  seconds = 0;
-  s = document.getElementById('seconds');
-  m = document.getElementById('minutes');
-  h = document.getElementById('hours');
+window.onload = () => {
+  h = 0;
+  m = 0;
+  s = 0;
+  mls = 0;
+  timeStarted = 0;
 
-  temporizador = setInterval(function () {
-    seconds++;
+  temporizador = document.getElementById('temporizador');
+  iniciar = document.getElementById('iniciarS');
+  resetear = document.getElementById('resetear');
+  parar = document.getElementById('parar');
+  event();
+};
 
-    secs = seconds;
-    mins = 0;
-    hours = 0;
+function event() {
+  iniciar.addEventListener('click', iniciarContador);
+  resetear.addEventListener('click', resetearContador);
+  parar.addEventListener('click', pararContador);
+}
 
-    while (secs >= 60) {
-      mins++;
-      secs -= 60;
-    }
+function contar() {
+  let ht, mt, st, mlst;
+  mls++;
 
-    while (mins <= 60) {
-      hours++;
-      mins -= 60;
-    }
+  if (mls > 99) {
+    s++;
+    mls = 0;
+  }
+  if (s > 59) {
+    m++;
+    s = 0;
+  }
+  if (m > 59) {
+    h++;
+    m = 0;
+  }
+  if (h > 24) h = 0;
 
-    if (min < 10) m.innerHTML = '0' + mins;
-    else m.innerHTML = mins;
-    if (secs < 10) s.innerHTML = '0' + secs;
-    else s.innerHTML = secs;
-    if (hours < 10) s.innerHTML = '0' + hours;
-    else h.innerHTML = hours;
+  mlst = ('0' + mls).slice(-2);
+  st = ('0' + s).slice(-2);
+  mt = ('0' + m).slice(-2);
+  ht = ('0' + h).slice(-2);
 
-    Total_secs = secs;
-    Total_mins = mins;
-    Total_hours = hours;
-  }, 1000);
+  temporizador.innerHTML = `${ht}:${mt}:${st}.${mlst}`;
+}
+
+function iniciarContador() {
+  contar();
+  timeStarted = setInterval(contar, 10);
+  iniciar.removeEventListener('click', iniciarContador);
+}
+function pararContador() {
+  clearInterval(timeStarted);
+  iniciar.addEventListener('click', iniciarContador);
 }
 
 function resetearContador() {
-  clearInterval(temporizador);
+  clearInterval(timeStarted);
+  temporizador.innerHTML = '00:00:00.00';
+  h = 0;
+  m = 0;
+  s = 0;
+  mls = 0;
+  iniciar.addEventListener('click', iniciarContador);
 }
-
-function grabarContador() {}

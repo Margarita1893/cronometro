@@ -29,29 +29,20 @@
         <div class="col">
           <div>
             <h1>Cronómetro</h1>
-            <p id="temporizador">
-              <span id="minutes">00</span>: <span id="seconds">00</span>:
-              <span id="hours">00</span>:
-            </p>
+            <p id="temporizador">00:00:00.00</p>
           </div>
           <div
             class="btn-group mb-2 d-flex justify-content-center"
             role="group"
           >
-            <button type="button" class="btn btn-success mr-2" id="resetear">
-              RESETEAR
-            </button>
-            <button type="button" class="btn btn-danger mr-2" id="iniciarS">
-              INICIAR/STOP
-            </button>
-            <button type="button" class="btn btn-primary mr-2" id="grabar">
-              GRABAR
-            </button>
+            <button class="btn btn-success mr-2" id="resetear">RESETEAR</button>
+            <button class="btn btn-danger mr-2" id="iniciarS">INICIAR</button>
+            <button class="btn btn-primary mr-2" id="parar">PARAR</button>
           </div>
           <div class="icon">
-            <i class="fas fa-stop-circle" id="resetear"></i>
-            <i class="fas fa-play-circle" id="iniciarS"></i>
-            <i class="fas fa-record-vinyl" id="grabar"></i>
+            <button class="fas fa-stop-circle" id="resetear"></button>
+            <button class="fas fa-play-circle" id="iniciarS"></button>
+            <button class="fas fa-record-vinyl" id="parar"></button>
           </div>
           <div>
             <h5>Tiempos grabados</h5>
@@ -76,6 +67,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="cronometro.js"></script>
+    <script src="javascript.js"></script>
   </body>
 </html>

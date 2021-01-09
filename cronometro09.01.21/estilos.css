@@ -22,7 +22,7 @@ body {
   #temporizador {
     font-weight: medium;
     color: white;
-    font-size: 20px;
+    font-size: 50px;
     padding-top: 40px;
     padding-bottom: 40px;
   }
@@ -47,19 +47,23 @@ body {
     display: none;
   }
   
-  @media (max-width: 800px) {
+  @media (max-width: 720px) {
     body {
       background-color: #f3f3f3f3;
     }
   
     #temporizador {
       color: #4f004b;
-      font-size: 35px;
+      font-size: 30px;
+    }
+
+    button {
+      border: none;
     }
   
     .icon {
       display: block;
-      font-size: 40px;
+      font-size: 45px;
       padding: 0 20px 0 20px;
     }
   
