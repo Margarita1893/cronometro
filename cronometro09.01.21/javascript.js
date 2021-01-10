@@ -9,6 +9,8 @@ window.onload = () => {
   iniciar = document.getElementById('iniciarS');
   resetear = document.getElementById('resetear');
   parar = document.getElementById('parar');
+  grabar = document.getElementById('grabar');
+  almacenarTiempos = document.getElementById('almacenarTiempos');
   event();
 };
 
@@ -16,6 +18,7 @@ function event() {
   iniciar.addEventListener('click', iniciarContador);
   resetear.addEventListener('click', resetearContador);
   parar.addEventListener('click', pararContador);
+  grabar.addEventListener('click', grabarContador);
 }
 
 function contar() {
@@ -62,4 +65,19 @@ function resetearContador() {
   s = 0;
   mls = 0;
   iniciar.addEventListener('click', iniciarContador);
+  while (almacenarTiempos.firstChild) {
+    almacenarTiempos.removeChild(almacenarTiempos.firstChild);
+  }
+}
+
+function grabarContador() {
+  if (temporizador.textContent === '00:00:00.00') {
+    console.log('click en el botón iniciar');
+  } else {
+    let p = document.createElement('ul');
+    p.innerHTML = `
+        <li>temporizador: ${h}:${m}:${s}.${mls}</li>
+    `;
+    almacenarTiempos.appendChild(p);
+  }
 }
