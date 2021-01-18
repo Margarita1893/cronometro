@@ -45,7 +45,7 @@ function contar() {
   mt = ('0' + m).slice(-2);
   ht = ('0' + h).slice(-2);
 
-  temporizador.innerHTML = `${ht}:${mt}:${st}.${mlst}`;
+  temporizador.innerHTML = `${ht}:${mt}:${st}:${mlst}`;
 }
 
 function iniciarContador() {
